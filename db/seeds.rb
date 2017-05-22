@@ -6,9 +6,64 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#Populating Album
 
-Photo.create( :title => “Myras birthday”, :date => “2013-02-02”, :description => “This is my favourite photo of Myras birthday. It was a wonderful day.”, :file_location => "my-photo/myras-birthday-20130202.jpg")
+photo_title = "Fox"
+photo_date = "2017-05-17"
+photo_description = "https://www.pexels.com/photo/brown-and-white-fox-on-green-grass-land-134058/"
+photo_location = Rails.root.join("db/images/fox.jpeg").open
 
-Photo.create( :title => “Family outing”, :date => “2014-11-13”, :description => “Spending some time at the park after a long week.”, :file_location => "my-photo/family-outing-20141113.jpg" )
+Photo.create(
+  :title => photo_title,
+  :date => photo_date,
+  :description => photo_description,
+  :file_location => photo_location,
+)
 
-Photo.create( :title => “Anniversary”, :date => “2010-11-22”, :description => “This is our 2nd anniversary.”, :file_location => "my-photo/my-anniversary-20101122.jpg")
+photo_title = "Cat"
+photo_date =  "2017-05-17"
+photo_description = "https://www.pexels.com/photo/animal-pet-fur-head-33537/"
+photo_location = Rails.root.join("db/images/cat.jpg").open
+
+Photo.create(
+  :title => photo_title,
+  :date => photo_date,
+  :description => photo_description,
+  :file_location => photo_location,
+)
+
+photo_title = "Pug"
+photo_date =  "2017-05-17"
+photo_description = "https://www.pexels.com/photo/tan-pug-covered-with-brown-blanket-37029/"
+photo_location = Rails.root.join("db/images/pug.jpg").open
+
+Photo.create(
+  :title => photo_title,
+  :date => photo_date,
+  :description => photo_description,
+  :file_location => photo_location,
+)
+
+photo_title = "Turtle"
+photo_date =  "2017-05-17"
+photo_description = "https://www.pexels.com/photo/sea-nature-water-animal-27631/"
+photo_location = Rails.root.join("db/images/turtle.jpg").open
+
+Photo.create(
+  :title => photo_title,
+  :date => photo_date,
+  :description => photo_description,
+  :file_location => photo_location,
+)
+
+photo_title = "Baby Duck"
+photo_date =  "2017-05-17"
+photo_description = "https://www.pexels.com/photo/duckling-on-black-soil-during-daytime-162140/"
+photo_location = Rails.root.join("db/images/babyduck.jpeg").open
+
+Photo.create(
+  :title => photo_title,
+  :date => photo_date,
+  :description => photo_description,
+  :file_location => photo_location,
+)
