@@ -2,8 +2,34 @@
   <div id="heading">
     <h1>Photo Album</h1>
   </div> 
-  <div id="newbutton">
-    <%= link_to 'New Photo', new_photo_path %>
+  <div id="navright">
+    <div id="buttonsbar">
+    <!-- If not signed in, show login button -->
+      <% if !user_signed_in? %>
+        <div id="newbutton">
+          <%= link_to 'Login', new_user_session_path %>
+        </div>
+        <!-- Else show new photo and log out -->
+      <% else %>
+        <div id="newbutton">
+          <%= link_to 'New Photo', new_photo_path %>
+        </div>
+        <div id="newbutton">
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Start of greeting -->
+    <div id="greetings">
+      Welcome 
+      <% if user_signed_in? %>
+        <%= current_user.name %>
+      <% else %>
+      Guest! 
+      <br>Login to upload new photos.
+      <% end %>
+    </div>
+    <!-- End of greeting -->
   </div>
 </div>
  
