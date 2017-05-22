@@ -34,31 +34,27 @@
 </div>
  
  <div class="container"> 
-  <div class="row">
-  <% @photos.each do |photo| %>
+   <div class="row">
+   <% @photos.each do |photo| %>
 
-    <div class="photoblock">
-    <table class="table table-striped table-condensed">
-      <tr>
-        <td colspan= "3" id="index_title"><%= photo.title %></td>
-      
-      </tr>
-      <tr>
-        <div>
-        <td colspan = "3" class="td-thumbnail"><%= link_to image_tag(photo.file_location.url, class: "img-thumbnail"), photo_path(photo) %>
+      <div class="photoblock">
+        <div class="td-thumbnail">
+          <%= image_tag(photo.file_location.url(:thumb), class: "img-thumbnail",) %>
+          <div class="imageinfo">
+            <% image_info = "Title: " + photo.title + "<br>Date Uploaded: " + photo.date.to_s %>
+            <%= link_to image_info.html_safe, photo_path(photo)%>
+          </div>
         </div>
-      </tr>
-      <tr id="photosedit">
-        <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-          <td><%= link_to 'Destroy', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
-        <% end %>
-      </tr>
-      </table>
+        <div id="photosedit">
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_photo_path(photo) %>
+            <%= link_to 'Destroy', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %>
+          <% end %>
+        </div>
       </div>
-      
-  <% end %>
-</div>
+        
+    <% end %>
+  </div>
 
 
 </div>
