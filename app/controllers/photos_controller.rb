@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
 
   before_filter :set_photo, :only=> [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
 
   def index
     @photos = Photo.all

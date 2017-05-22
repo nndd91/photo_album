@@ -23,6 +23,30 @@
   padding: 30px;
 }
 
+#photosedit {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#photosedit td {
+  border: none;
+  padding: 0;
+}
+
+#photosedit a {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  border: none;
+  padding: 10px 50px;
+  margin: 0 10px;
+}
+#photosedit a:hover {
+  background-color: silver;
+  text-decoration: none;
+}
+
 #nav {
   height: 100px;
   display: flex;
