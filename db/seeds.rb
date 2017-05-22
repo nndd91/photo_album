@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #Populating Album
 
+######################
+#  Populating Album  #
+######################
+
 photo_title = "Fox"
 photo_date = "2017-05-17"
 photo_description = "https://www.pexels.com/photo/brown-and-white-fox-on-green-grass-land-134058/"
@@ -66,3 +70,8 @@ Photo.create(
   :description => photo_description,
   :file_location => photo_location,
 )
+##################
+# Creating Users #
+##################
+
+User.create(:email => 'demo@demo.com', :password => 'password', :password_confirmation => 'password', :is_admin => true)

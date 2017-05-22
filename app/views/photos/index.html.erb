@@ -2,8 +2,34 @@
   <div id="heading">
     <h1>Photo Album</h1>
   </div> 
-  <div id="newbutton">
-    <%= link_to 'New Photo', new_photo_path %>
+  <div id="navright">
+    <div id="buttonsbar">
+    <!-- If not signed in, show login button -->
+      <% if !user_signed_in? %>
+        <div id="newbutton">
+          <%= link_to 'Login', new_user_session_path %>
+        </div>
+        <!-- Else show new photo and log out -->
+      <% else %>
+        <div id="newbutton">
+          <%= link_to 'New Photo', new_photo_path %>
+        </div>
+        <div id="newbutton">
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </div>
+      <% end %>
+    </div>
+    <!-- Start of greeting -->
+    <div id="greetings">
+      Welcome 
+      <% if user_signed_in? %>
+        <%= current_user.name %>
+      <% else %>
+      Guest! 
+      <br>Login to upload new photos.
+      <% end %>
+    </div>
+    <!-- End of greeting -->
   </div>
 </div>
  
@@ -19,13 +45,14 @@
       </tr>
       <tr>
         <div>
-        <td colspan = "3" class="td-thumbnail"><%= image_tag photo.file_location.url, class: "img-thumbnail"%>
+        <td colspan = "3" class="td-thumbnail"><%= link_to image_tag(photo.file_location.url, class: "img-thumbnail"), photo_path(photo) %>
         </div>
       </tr>
-      <tr>
-        <td><%= link_to 'Show', photo_path(photo) %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+      <tr id="photosedit">
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+          <td><%= link_to 'Destroy', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+        <% end %>
       </tr>
       </table>
       </div>
