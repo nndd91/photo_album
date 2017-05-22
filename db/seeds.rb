@@ -74,4 +74,4 @@ Photo.create(
 # Creating Users #
 ##################
 
-User.create(:email => 'demo@demo.com', :password => 'password', :password_confirmation => 'password', :is_admin => true)
+User.create(:name => "demo", :email => 'demo@demo.com', :password => 'password', :password_confirmation => 'password', :is_admin => true)
